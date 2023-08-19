@@ -1,0 +1,600 @@
+{
+  "opening": "# Programming Polyglot: DSA Essentials\n\nExplore the essential coding constructs across different programming languages through this interactive site. From basic operations to complex algorithms, find code snippets and examples tailored to your needs. Dive into the code by visiting the [Interactive Site](https://pawasagrwl.github.io/language-basics/).\n\n",
+  "topics": {
+    "IO": {
+      "Input": {
+        "Python": ["x = input(\"input: \")"],
+        "JavaScript": ["prompt(\"input: \")"],
+        "Java": ["Scanner sc = new Scanner(System.in); x = sc.nextLine();"],
+        "C++": ["cin >> x;"],
+        "Golang": ["fmt.Scan(&x);", "fmt.Scanln(&x);"],
+        "Rust": [
+          "let mut x = String::new(); std::io::stdin().read_line(&mut x).unwrap();"
+        ]
+      },
+      "Output": {
+        "Python": ["print(x)", "print(f\"{x}\")", "print(\"{}\".format(x))"],
+        "JavaScript": ["console.log(x)"],
+        "Java": ["System.out.println(x);"],
+        "C++": [
+          "cout << x;",
+          "std::cout << x << std::endl;",
+          "printf(\"%s\\n\", x);"
+        ],
+        "Golang": [
+          "fmt.Println(x);",
+          "fmt.Printf(\"%v\\n\", x);",
+          "log.Println(x);"
+        ],
+        "Rust": [
+          "println!(\"{}\", x);",
+          "print!(\"{}\\n\", x);",
+          "format!(\"{}\", x);"
+        ]
+      },
+      "Typechecking": {
+        "Python": ["type(variable)", "isinstance(variable, type)"],
+        "JavaScript": ["typeof variable", "instanceof constructor"],
+        "Java": ["instanceof ClassName"],
+        "C++": ["typeid(variable)", "dynamic_cast<Type*>(pointer)"],
+        "Golang": [
+          "Type assertion: variable.(Type)",
+          "reflect.TypeOf(variable)"
+        ],
+        "Rust": ["match variable { Type => /* code */, _ => /* code */ }"]
+      }
+    },
+    "Loops": {
+      "For": {
+        "Python": ["for i in range(10):", "for element in list:"],
+        "JavaScript": [
+          "for (let i = 0; i < 10; i++) {}",
+          "for (const element of array) {}"
+        ],
+        "Java": [
+          "for (int i = 0; i < 10; i++) {}",
+          "for (Type element : array) {}"
+        ],
+        "C++": [
+          "for (int i = 0; i < 10; i++) {}",
+          "for (const auto &element : array) {}"
+        ],
+        "Golang": [
+          "for i := 0; i < 10; i++ {}",
+          "for _, element := range array {}"
+        ],
+        "Rust": ["for i in 0..10 {}", "for element in &array {}"]
+      },
+      "While": {
+        "Python": ["while condition:"],
+        "JavaScript": ["while (condition) {}"],
+        "Java": ["while (condition) {}"],
+        "C++": ["while (condition) {}"],
+        "Golang": ["for condition {}"],
+        "Rust": ["while condition {}"]
+      },
+      "Do-While": {
+        "Python": ["while True: # ... if not condition: break"],
+        "JavaScript": ["do {} while (condition)"],
+        "Java": ["do {} while (condition)"],
+        "C++": ["do {} while (condition)"],
+        "Golang": ["for { # ... if !condition { break } }"],
+        "Rust": ["loop { # ... if !condition { break } }"]
+      }
+    },
+    "Conversions": {
+      "Number to String": {
+        "Python": ["str(number)"],
+        "JavaScript": ["number.toString()", "String(number)"],
+        "Java": ["Integer.toString(number)", "String.valueOf(number)"],
+        "C++": ["std::to_string(number)"],
+        "Golang": ["strconv.Itoa(number)"],
+        "Rust": ["number.to_string()"]
+      },
+      "String to Number": {
+        "Python": ["int(numberString)", "float(numberString)"],
+        "JavaScript": [
+          "parseInt(numberString)",
+          "parseFloat(numberString)",
+          "Number(numberString)"
+        ],
+        "Java": [
+          "Integer.parseInt(numberString)",
+          "Double.parseDouble(numberString)"
+        ],
+        "C++": ["std::stoi(numberString)", "std::stod(numberString)"],
+        "Golang": [
+          "strconv.Atoi(numberString)",
+          "strconv.ParseFloat(numberString, 64)"
+        ],
+        "Rust": [
+          "numberString.parse::<i32>().unwrap()",
+          "numberString.parse::<f64>().unwrap()"
+        ]
+      },
+      "Character to ASCII": {
+        "Python": ["ord(char)"],
+        "JavaScript": ["char.charCodeAt(0)"],
+        "Java": ["(int) char"],
+        "C++": ["static_cast<int>(char)"],
+        "Golang": ["int(char)"],
+        "Rust": ["char as u8"]
+      },
+      "ASCII to Character": {
+        "Python": ["chr(ascii)"],
+        "JavaScript": ["String.fromCharCode(ascii)"],
+        "Java": ["(char) ascii"],
+        "C++": ["static_cast<char>(ascii)"],
+        "Golang": ["string(ascii)"],
+        "Rust": ["char::from(ascii)"]
+      },
+      "Number to Binary": {
+        "Python": ["bin(intNumber)"],
+        "JavaScript": ["intNumber.toString(2)"],
+        "Java": ["Integer.toBinaryString(intNumber)"],
+        "C++": ["std::bitset<32>(intNumber).to_string()"],
+        "Golang": ["strconv.FormatInt(intNumber, 2)"],
+        "Rust": ["format!(\"{:b}\", intNumber)"]
+      },
+      "Number to Hexadecimal": {
+        "Python": ["hex(intNumber)"],
+        "JavaScript": ["intNumber.toString(16)"],
+        "Java": ["Integer.toHexString(intNumber)"],
+        "C++": ["std::stringstream ss; ss << std::hex << intNumber; ss.str()"],
+        "Golang": ["strconv.FormatInt(intNumber, 16)"],
+        "Rust": ["format!(\"{:x}\", intNumber)"]
+      }
+    },
+    "Strings": {
+      "Create": {
+        "Python": ["string = 'value'"],
+        "JavaScript": ["let string = 'value'"],
+        "Java": ["String string = 'value'"],
+        "C++": ["std::string string = 'value'"],
+        "Golang": ["string := 'value'"],
+        "Rust": ["let string = 'value'"]
+      },
+      "Print": {
+        "Python": ["print(string)"],
+        "JavaScript": ["console.log(string)"],
+        "Java": ["System.out.println(string)"],
+        "C++": ["std::cout << string"],
+        "Golang": ["fmt.Println(string)"],
+        "Rust": ["println!(\"{}\", string)"]
+      },
+      "Access char": {
+        "Python": ["string[1]", "string[-1]"],
+        "JavaScript": ["string.charAt(1)", "string.charAt(string.length - 1)"],
+        "Java": ["string.charAt(1)", "string.charAt(string.length() - 1)"],
+        "C++": ["string.at(1)", "string.at(string.length() - 1)"],
+        "Golang": ["string[1]", "string[len(string) - 1]"],
+        "Rust": [
+          "string.chars().nth(1)",
+          "string.chars().nth(string.len() - 1)"
+        ]
+      },
+      "Find char index": {
+        "Python": ["string.index(char)", "string.find(char)"],
+        "JavaScript": ["string.indexOf(char)"],
+        "Java": ["string.indexOf(char)"],
+        "C++": ["string.find(char)"],
+        "Golang": ["strings.Index(string, char)"],
+        "Rust": ["string.find(char)"]
+      },
+      "Count char": {
+        "Python": ["string.count(char)"],
+        "JavaScript": ["(string.match(new RegExp(char, 'g')) || []).length"],
+        "Java": ["StringUtils.countMatches(string, char)"],
+        "C++": ["std::count(string.begin(), string.end(), char)"],
+        "Golang": ["strings.Count(string, char)"],
+        "Rust": ["string.matches(char).count()"]
+      },
+      "Add/Concatenate": {
+        "Python": ["string1 + \"string2\"", "string1 + string2"],
+        "JavaScript": ["string1 + string2"],
+        "Java": ["string1.concat(string2)"],
+        "C++": ["string1 + string2"],
+        "Golang": ["string1 + string2"],
+        "Rust": ["string1 + string2"]
+      },
+      "Change case": {
+        "Python": ["string.capitalize()", "string.lower()", "string.upper()"],
+        "JavaScript": [
+          "string.charAt(0).toUpperCase() + string.slice(1)",
+          "string.toLowerCase()",
+          "string.toUpperCase()"
+        ],
+        "Java": [
+          "Character.toUpperCase(string.charAt(0)) + string.substring(1)",
+          "string.toLowerCase()",
+          "string.toUpperCase()"
+        ],
+        "C++": [
+          "std::transform(string.begin(), string.end(), string.begin(), ::toupper)",
+          "std::transform(string.begin(), string.end(), string.begin(), ::tolower)"
+        ],
+        "Golang": [
+          "strings.Title(string)",
+          "strings.ToLower(string)",
+          "strings.ToUpper(string)"
+        ],
+        "Rust": ["string.to_uppercase()", "string.to_lowercase()"]
+      },
+      "Slice": {
+        "Python": ["string[1:]", "string[:5]"],
+        "JavaScript": ["string.slice(1)", "string.slice(0, 5)"],
+        "Java": ["string.substring(1)", "string.substring(0, 5)"],
+        "C++": ["string.substr(1)", "string.substr(0, 5)"],
+        "Golang": ["string[1:]", "string[:5]"],
+        "Rust": ["&string[1..]", "&string[..5]"]
+      },
+      "Reverse": {
+        "Python": ["string[::-1]"],
+        "JavaScript": ["string.split('').reverse().join('')"],
+        "Java": ["new StringBuilder(string).reverse().toString()"],
+        "C++": ["std::reverse(string.begin(), string.end())"],
+        "Golang": ["// Iterate through runes and reverse"],
+        "Rust": ["string.chars().rev().collect::<String>()"]
+      }
+    },
+    "Arrays": {
+      "Create": {
+        "Python": ["array = []"],
+        "JavaScript": ["let array = []"],
+        "Java": ["ArrayList<Type> array = new ArrayList<>()"],
+        "C++": ["std::vector<Type> array"],
+        "Golang": ["var array []Type"],
+        "Rust": ["let mut array: Vec<Type> = Vec::new()"]
+      },
+      "Print": {
+        "Python": ["print(array)"],
+        "JavaScript": ["console.log(array)"],
+        "Java": ["System.out.println(array)"],
+        "C++": ["for(const auto &e : array) { std::cout << e << ' '; }"],
+        "Golang": ["fmt.Println(array)"],
+        "Rust": ["println!(\"{:?}\", array)"]
+      },
+      "Access element": {
+        "Python": ["array[index]"],
+        "JavaScript": ["array[index]"],
+        "Java": ["array.get(index)"],
+        "C++": ["array[index]"],
+        "Golang": ["array[index]"],
+        "Rust": ["array[index]"]
+      },
+      "Find element index": {
+        "Python": ["array.index(element)"],
+        "JavaScript": ["array.indexOf(element)"],
+        "Java": ["array.indexOf(element)"],
+        "C++": [
+          "std::find(array.begin(), array.end(), element) - array.begin()"
+        ],
+        "Golang": [
+          "sort.Search(len(array), func(i int) bool { return array[i] == element })"
+        ],
+        "Rust": ["array.iter().position(|&r| r == element)"]
+      },
+      "Count element": {
+        "Python": ["array.count(element)"],
+        "JavaScript": ["array.filter(x => x === element).length"],
+        "Java": ["Collections.frequency(array, element)"],
+        "C++": ["std::count(array.begin(), array.end(), element)"],
+        "Golang": [
+          "func count(array []Type, element Type) int { count := 0; for _, v := range array { if v == element { count++ } } return count }"
+        ],
+        "Rust": ["array.iter().filter(|&&x| x == element).count()"]
+      },
+      "Add to array": {
+        "Python": ["array.append(element)"],
+        "JavaScript": ["array.push(element)"],
+        "Java": ["array.add(element)"],
+        "C++": ["array.push_back(element)"],
+        "Golang": ["array = append(array, element)"],
+        "Rust": ["array.push(element)"]
+      },
+      "Delete from array": {
+        "Python": ["array.remove(element)"],
+        "JavaScript": ["array.splice(array.indexOf(element), 1)"],
+        "Java": ["array.remove(element)"],
+        "C++": [
+          "array.erase(std::remove(array.begin(), array.end(), element), array.end())"
+        ],
+        "Golang": ["array = append(array[:index], array[index+1:]...)"],
+        "Rust": ["array.remove(index)"]
+      },
+      "Shift": {
+        "Python": ["array.pop(0)"],
+        "JavaScript": ["array.shift()"],
+        "Java": ["array.remove(0)"],
+        "C++": ["array.erase(array.begin())"],
+        "Golang": ["array = array[1:]"],
+        "Rust": ["array.remove(0)"]
+      },
+      "Unshift": {
+        "Python": ["array.insert(0, element)"],
+        "JavaScript": ["array.unshift(element)"],
+        "Java": ["array.add(0, element)"],
+        "C++": ["array.insert(array.begin(), element)"],
+        "Golang": ["array = append([]Type{element}, array...)"],
+        "Rust": ["array.insert(0, element)"]
+      },
+      "Slice": {
+        "Python": ["array[start:end]"],
+        "JavaScript": ["array.slice(start, end)"],
+        "Java": ["array.subList(start, end)"],
+        "C++": [
+          "std::vector<Type> slice(array.begin() + start, array.begin() + end)"
+        ],
+        "Golang": ["array[start:end]"],
+        "Rust": ["&array[start..end]"]
+      },
+      "Sort": {
+        "Python": ["array.sort()"],
+        "JavaScript": ["array.sort()"],
+        "Java": ["Collections.sort(array)"],
+        "C++": ["std::sort(array.begin(), array.end())"],
+        "Golang": [
+          "sort.Slice(array, func(i, j int) bool { return array[i] < array[j] })"
+        ],
+        "Rust": ["array.sort()"]
+      },
+      "Reverse": {
+        "Python": ["array.reverse()"],
+        "JavaScript": ["array.reverse()"],
+        "Java": ["Collections.reverse(array)"],
+        "C++": ["std::reverse(array.begin(), array.end())"],
+        "Golang": [
+          "func reverse(array []Type) { for i, j := 0, len(array)-1; i < j; i, j = i+1, j-1 { array[i], array[j] = array[j], array[i] } }"
+        ],
+        "Rust": ["array.reverse()"]
+      },
+      "Max": {
+        "Python": ["max(array)"],
+        "JavaScript": ["Math.max(...array)"],
+        "Java": ["Collections.max(array)"],
+        "C++": ["*std::max_element(array.begin(), array.end())"],
+        "Golang": [
+          "func max(array []Type) Type { max := array[0]; for _, v := range array { if v > max { max = v } } return max }"
+        ],
+        "Rust": ["*array.iter().max().unwrap()"]
+      },
+      "Min": {
+        "Python": ["min(array)"],
+        "JavaScript": ["Math.min(...array)"],
+        "Java": ["Collections.min(array)"],
+        "C++": ["*std::min_element(array.begin(), array.end())"],
+        "Golang": [
+          "func min(array []Type) Type { min := array[0]; for _, v := range array { if v < min { min = v } } return min }"
+        ],
+        "Rust": ["*array.iter().min().unwrap()"]
+      }
+    },
+    "Hashmaps": {
+      "Create": {
+        "Python": ["hashmap = {}", "hashmap = dict()"],
+        "JavaScript": ["let hashmap = {}", "let hashmap = new Map()"],
+        "Java": [
+          "HashMap<Key, Value> hashmap = new HashMap<>()",
+          "Map<Key, Value> hashmap = new LinkedHashMap<>()"
+        ],
+        "C++": [
+          "std::unordered_map<Key, Value> hashmap",
+          "std::map<Key, Value> hashmap"
+        ],
+        "Golang": [
+          "var hashmap map[Key]Value",
+          "hashmap := make(map[Key]Value)"
+        ],
+        "Rust": ["let mut hashmap: HashMap<Key, Value> = HashMap::new()"]
+      },
+      "Print": {
+        "Python": ["print(hashmap)"],
+        "JavaScript": [
+          "console.log(hashmap)",
+          "for (let [key, value] of hashmap) { console.log(key, value); }"
+        ],
+        "Java": [
+          "System.out.println(hashmap)",
+          "hashmap.forEach((key, value) -> System.out.println(key + \": \" + value))"
+        ],
+        "C++": [
+          "for (const auto &kv : hashmap) { std::cout << kv.first << \": \" << kv.second << '\\n'; }"
+        ],
+        "Golang": [
+          "for key, value := range hashmap { fmt.Println(key, value) }"
+        ],
+        "Rust": [
+          "for (key, value) in &hashmap { println!(\"{}: {}\", key, value); }"
+        ]
+      },
+      "Access element": {
+        "Python": ["hashmap[key]", "hashmap.get(key)"],
+        "JavaScript": ["hashmap[key]", "hashmap.get(key)"],
+        "Java": ["hashmap.get(key)"],
+        "C++": ["hashmap[key]", "hashmap.at(key)"],
+        "Golang": ["hashmap[key]"],
+        "Rust": ["hashmap[&key]", "hashmap.get(&key)"]
+      },
+      "Find key of element": {
+        "Python": [
+          "next(key for key, value in hashmap.items() if value == search_value)",
+          "[key for key, value in hashmap.items() if value == search_value]"
+        ],
+        "JavaScript": [
+          "Object.keys(hashmap).find(key => hashmap[key] === search_value)",
+          "[...hashmap.keys()].find(key => hashmap.get(key) === search_value)"
+        ],
+        "Java": [
+          "hashmap.entrySet().stream().filter(entry -> entry.getValue().equals(search_value)).map(Map.Entry::getKey).collect(Collectors.toList())"
+        ],
+        "C++": [
+          "std::find_if(hashmap.begin(), hashmap.end(), [&](const auto& kv) { return kv.second == search_value; })->first"
+        ],
+        "Golang": [
+          "func findKey(hashmap map[Key]Value, searchValue Value) Key { for key, value := range hashmap { if value == searchValue { return key } } return nil }"
+        ],
+        "Rust": [
+          "hashmap.iter().find(|&(_, &val)| val == search_value).map(|(&key, _)| key)"
+        ]
+      },
+      "Count elements": {
+        "Python": ["len(hashmap)"],
+        "JavaScript": ["Object.keys(hashmap).length", "hashmap.size"],
+        "Java": ["hashmap.size()"],
+        "C++": ["hashmap.size()"],
+        "Golang": ["len(hashmap)"],
+        "Rust": ["hashmap.len()"]
+      },
+      "Add": {
+        "Python": ["hashmap[key] = value"],
+        "JavaScript": ["hashmap[key] = value", "hashmap.set(key, value)"],
+        "Java": ["hashmap.put(key, value)"],
+        "C++": ["hashmap[key] = value"],
+        "Golang": ["hashmap[key] = value"],
+        "Rust": ["hashmap.insert(key, value)"]
+      },
+      "Delete": {
+        "Python": ["del hashmap[key]", "hashmap.pop(key, None)"],
+        "JavaScript": ["delete hashmap[key]", "hashmap.delete(key)"],
+        "Java": ["hashmap.remove(key)"],
+        "C++": ["hashmap.erase(key)"],
+        "Golang": ["delete(hashmap, key)"],
+        "Rust": ["hashmap.remove(&key)"]
+      },
+      "Max": {
+        "Python": ["max(hashmap, key=hashmap.get)"],
+        "JavaScript": [
+          "Object.keys(hashmap).reduce((a, b) => hashmap[a] > hashmap[b] ? a : b)"
+        ],
+        "Java": [
+          "Collections.max(hashmap.entrySet(), Map.Entry.comparingByValue()).getKey()"
+        ],
+        "C++": [
+          "std::max_element(hashmap.begin(), hashmap.end(), [](const auto& p1, const auto& p2) { return p1.second < p2.second; })->first"
+        ],
+        "Golang": [
+          "func maxKey(hashmap map[Key]Value) Key { var maxKey Key; var maxValue Value; for key, value := range hashmap { if value > maxValue { maxKey = key; maxValue = value } } return maxKey }"
+        ],
+        "Rust": [
+          "hashmap.iter().max_by_key(|&(_, &val)| val).map(|(&key, _)| key)"
+        ]
+      },
+      "Min": {
+        "Python": ["min(hashmap, key=hashmap.get)"],
+        "JavaScript": [
+          "Object.keys(hashmap).reduce((a, b) => hashmap[a] < hashmap[b] ? a : b)"
+        ],
+        "Java": [
+          "Collections.min(hashmap.entrySet(), Map.Entry.comparingByValue()).getKey()"
+        ],
+        "C++": [
+          "std::min_element(hashmap.begin(), hashmap.end(), [](const auto& p1, const auto& p2) { return p1.second < p2.second; })->first"
+        ],
+        "Golang": [
+          "func minKey(hashmap map[Key]Value) Key { var minKey Key; var minValue Value = <MAX_VALUE>; for key, value := range hashmap { if value < minValue { minKey = key; minValue = value } } return minKey }"
+        ],
+        "Rust": [
+          "hashmap.iter().min_by_key(|&(_, &val)| val).map(|(&key, _)| key)"
+        ]
+      }
+    },
+    "Sets": {
+      "Create": {
+        "Python": ["set1 = set()", "set1 = {1, 2, 3}"],
+        "JavaScript": ["let set1 = new Set()", "let set1 = new Set([1, 2, 3])"],
+        "Java": [
+          "Set<Type> set1 = new HashSet<>()",
+          "Set<Type> set1 = new TreeSet<>()"
+        ],
+        "C++": ["std::set<Type> set1", "std::unordered_set<Type> set1"],
+        "Golang": ["set1 := make(map[Type]bool)"],
+        "Rust": ["let mut set1: HashSet<Type> = HashSet::new()"]
+      },
+      "Print": {
+        "Python": ["print(set1)"],
+        "JavaScript": [
+          "console.log(set1)",
+          "set1.forEach(value => console.log(value))"
+        ],
+        "Java": [
+          "System.out.println(set1)",
+          "set1.forEach(System.out::println)"
+        ],
+        "C++": [
+          "for (const auto &value : set1) { std::cout << value << '\\n'; }"
+        ],
+        "Golang": ["for key := range set1 { fmt.Println(key) }"],
+        "Rust": ["for value in &set1 { println!(\"{}\", value); }"]
+      },
+      "Add": {
+        "Python": ["set1.add(element)"],
+        "JavaScript": ["set1.add(element)"],
+        "Java": ["set1.add(element)"],
+        "C++": ["set1.insert(element)"],
+        "Golang": ["set1[element] = true"],
+        "Rust": ["set1.insert(element)"]
+      },
+      "Delete": {
+        "Python": ["set1.remove(element)", "set1.discard(element)"],
+        "JavaScript": ["set1.delete(element)"],
+        "Java": ["set1.remove(element)"],
+        "C++": ["set1.erase(element)"],
+        "Golang": ["delete(set1, element)"],
+        "Rust": ["set1.remove(&element)"]
+      },
+      "Find": {
+        "Python": ["element in set1"],
+        "JavaScript": ["set1.has(element)"],
+        "Java": ["set1.contains(element)"],
+        "C++": ["set1.find(element) != set1.end()"],
+        "Golang": ["_, exists := set1[element]; exists"],
+        "Rust": ["set1.contains(&element)"]
+      },
+      "Count elements": {
+        "Python": ["len(set1)"],
+        "JavaScript": ["set1.size"],
+        "Java": ["set1.size()"],
+        "C++": ["set1.size()"],
+        "Golang": ["len(set1)"],
+        "Rust": ["set1.len()"]
+      },
+      "Union": {
+        "Python": ["set1.union(set2)", "set1 \\| set2"],
+        "JavaScript": ["new Set([...set1, ...set2])"],
+        "Java": ["set1.addAll(set2)"],
+        "C++": ["set1.insert(set2.begin(), set2.end())"],
+        "Golang": ["for element := range set2 { set1[element] = struct{}{} }"],
+        "Rust": ["set1.union(&set2).cloned().collect()"]
+      },
+      "Intersection": {
+        "Python": ["set1.intersection(set2)", "set1 & set2"],
+        "JavaScript": ["new Set([...set1].filter(x => set2.has(x)))"],
+        "Java": ["set1.retainAll(set2)"],
+        "C++": ["std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(), std::inserter(result, result.begin()))"],
+        "Golang": ["for element := range set1 { if _, found := set2[element]; !found { delete(set1, element) } }"],
+        "Rust": ["set1.intersection(&set2).cloned().collect()"]
+      },
+      "Min": {
+        "Python": ["min(set1)"],
+        "JavaScript": ["Math.min(...set1)"],
+        "Java": ["Collections.min(set1)"],
+        "C++": ["*std::min_element(set1.begin(), set1.end())"],
+        "Golang": [
+          "func min(set1 map[Type]bool) Type { var minValue Type = <MAX_VALUE>; for key := range set1 { if key < minValue { minValue = key } } return minValue }"
+        ],
+        "Rust": ["*set1.iter().min().unwrap()"]
+      },
+      "Max": {
+        "Python": ["max(set1)"],
+        "JavaScript": ["Math.max(...set1)"],
+        "Java": ["Collections.max(set1)"],
+        "C++": ["*std::max_element(set1.begin(), set1.end())"],
+        "Golang": [
+          "func max(set1 map[Type]bool) Type { var maxValue Type; for key := range set1 { if key > maxValue { maxValue = key } } return maxValue }"
+        ],
+        "Rust": ["*set1.iter().max().unwrap()"]
+      }
+    }
+  },
+  "end": "\n\n---\n\nThank you for exploring Language Basics for DSA. Contributions, suggestions, and feedback are always welcome! Feel free to open an issue or submit a pull request. Happy Coding! 🚀\n"
+}

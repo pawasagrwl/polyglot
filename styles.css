@@ -1,0 +1,262 @@
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  color: black;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* text-align: center; */
+}
+
+.header-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1px;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer p{
+  padding-left: 5px;
+}
+
+footer a {
+  color: #fff;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 10px;
+}
+
+#code-finder {
+  background: #f8f8f8;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  display: block;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: auto; /* allow buttons to adjust according to content */
+  margin: 10px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.reset-btn {
+  background-color: #f4f4f4;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  margin-left: 1px;
+}
+
+.reset-btn:hover {
+  background-color: #d0d0d0;
+}
+
+#code {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow-x: auto;
+  max-width: 1000px; /* make sure the width is same as container */
+}
+
+#language-selection {
+  max-width: 1000px; /* make sure the width is same as container */
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+#language-selection label {
+  background: #e0e0e0;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#language-selection label:hover {
+  background: #d0d0d0;
+}
+
+#language-selection > span {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+select {
+  width: calc(100% / 3 - 10px); /* distributing space between three dropdowns */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+  appearance: none;
+  background: url("arrow.png") no-repeat 95% center;
+  background-size: 20px;
+}
+
+#content {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  max-width: 1000px; /* make sure the width is same as container */
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f9f9f9;
+}
+
+@media screen and (max-width: 768px) {
+  select,
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .container {
+    padding: 5px;
+  }
+  header .header-items{
+    display: flex;
+    justify-content: space-between
+
+  }
+  .header-items h1 {
+    font-size: 10px; /* Adjust as needed */
+    ;
+  }
+
+  header .header-items button {
+    margin-top: 5px;
+    font-size: 10px;
+  }
+  footer p, footer button {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  
+}
+
+body.dark-theme {
+  background-color: #333;
+  color: #f4f4f4;
+}
+
+body.dark-theme header {
+  background-color: #445566;
+}
+
+body.dark-theme #code-finder {
+  background-color: #444;
+  color: #f4f4f4;
+}
+
+body.dark-theme button {
+  background: #556677;
+  color: #f4f4f4;
+}
+
+body.dark-theme button:hover {
+  background: #334455;
+}
+
+body.dark-theme .reset-btn {
+  background-color: #555;
+  color: #f4f4f4;
+}
+
+body.dark-theme .reset-btn:hover {
+  background-color: #777;
+}
+
+body.dark-theme #code {
+  background-color: #444;
+  color: #f4f4f4;
+}
+
+body.dark-theme #language-selection label {
+  background: #555;
+}
+
+body.dark-theme #language-selection label:hover {
+  background: #777;
+}
+
+body.dark-theme select {
+  background-color: #555;
+  color: #f4f4f4;
+  border: 1px solid #777;
+}
+
+body.dark-theme #content {
+  background: #444;
+  color: #f4f4f4;
+}
+
+body.dark-theme table th,
+body.dark-theme table td {
+  border: 1px solid #777;
+}
+
+body.dark-theme table th {
+  background-color: #555;
+}
+
+body.dark-theme footer {
+  background-color: #444;
+}

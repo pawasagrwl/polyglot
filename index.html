@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programming Polyglot: DSA Essentials</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-items">
+        <h1>Language Basics for DSA</h1>
+        <button id="theme" class="header-btn right-btn">
+          Dark Theme
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </header>
+    <div class="container">
+      <div id="code-finder">
+        <select id="topic-dropdown"></select>
+        <select id="operation-dropdown"></select>
+        <select id="language-dropdown"></select>
+        <button onclick="findCode(data)">Find Code</button>
+        <button onclick="resetCode()" class="reset-btn">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+      </div>
+      <div id="code"></div>
+      <div id="language-selection">
+        <span>Languages:</span>
+        <div id="languages">
+          <label>
+            <input
+              type="checkbox"
+              value="Python"
+              onclick="toggleColumn(this)"
+              checked
+            />
+            Python
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="JavaScript"
+              onclick="toggleColumn(this)"
+              checked
+            />
+            JavaScript
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="Java"
+              onclick="toggleColumn(this)"
+              checked
+            />
+            Java
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="C++"
+              onclick="toggleColumn(this)"
+              checked
+            />
+            C++
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="Golang"
+              onclick="toggleColumn(this)"
+              checked
+            />
+            Golang
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="Rust"
+              onclick="toggleColumn(this)"
+              checked
+            />
+            Rust
+          </label>
+        </div>
+      </div>
+      <div id="content"></div>
+
+      <script src="index.js"></script>
+    </div>
+    <footer>
+      <p>
+        Copyright &copy; Pawas Aggarwal. Last updated:
+        <a href="https://github.com/pawasagrwl/language-basics"
+          >August 19, 2023</a
+        >
+      </p>
+      <button
+        id="scrollToTop"
+        class="header-btn left-btn"
+        onclick="scrollToTop()"
+      >
+        <u>Scroll To Top</u>
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </footer>
+  </body>
+</html>

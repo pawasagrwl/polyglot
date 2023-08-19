@@ -1,6 +1,6 @@
 # Programming Polyglot: DSA Essentials
 
-Explore the essential coding constructs across different programming languages through this interactive site. From basic operations to complex algorithms, find code snippets and examples tailored to your needs. Dive into the code by visiting the [Interactive Site](https://pawasagrwl.github.io/language-basics/).
+Explore the essential coding constructs across different programming languages through this interactive site. From basic operations to complex algorithms, find code snippets and examples tailored to your needs. Dive into the code by visiting the [Interactive Site](https://pawasagrwl.github.io/polyglot/).
 
 ## Code Table
 | Topic | Operation | Python | JavaScript | Java | C++ | Golang | Rust |

@@ -1,5 +1,6 @@
 {
   "opening": "# Programming Polyglot: DSA Essentials\n\nExplore the essential coding constructs across different programming languages through this interactive site. From basic operations to complex algorithms, find code snippets and examples tailored to your needs. Dive into the code by visiting the [Interactive Site](https://pawasagrwl.github.io/polyglot/).\n\n",
+  "body": "## Code Table\nYou can access the code table [here](table.md)",
   "topics": {
     "IO": {
       "Input": {

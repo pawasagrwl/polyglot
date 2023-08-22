@@ -1,4 +1,3 @@
-## Code Table
 | Topic | Operation | Python | JavaScript | Java | C++ | Golang | Rust |
 | :----: | :-------: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
 | **IO** |

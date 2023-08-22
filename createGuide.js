@@ -3,7 +3,7 @@ const fs = require("fs");
 const languages = ["Python", "JavaScript", "Java", "C++", "Golang", "Rust"];
 
 const createHeader = () => {
-  const title = "## Code Table\n"
+  
   const headings = languages.reduce(
     (acc, language) => acc + `| ${language} `,
     "| Topic | Operation "
@@ -13,7 +13,7 @@ const createHeader = () => {
     "| :----: | :-------: " +
     "| :-----: ".repeat(languages.length) +
     "|\n";
-  const header = title + headings + separator;
+  const header = headings + separator;
   return header;
 };
 
@@ -47,13 +47,17 @@ fs.readFile("data.json", "utf8", (err, jsonString) => {
   if (err) throw err;
   const data = JSON.parse(jsonString);
 
-  const opening = data.opening;
+  
   const tableHeader = createHeader();
   const tableBody = createRows(data.topics);
   const table = tableHeader + tableBody;
+
+  const opening = data.opening;
+  const body = data.body;
   const end = data.end;
 
-  readme = opening + table + end;
+  const readme = opening + body + end;
+
   fs.writeFile("table.md", table, (err) => {
     if (err) throw err;
     console.log("Table saved to table.md");

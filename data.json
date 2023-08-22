@@ -220,6 +220,14 @@
         ],
         "Rust": ["string.to_uppercase()", "string.to_lowercase()"]
       },
+      "Check Case": {
+        "Python": ["string.islower()", "string.isupper()", "string.istitle()"],
+        "JavaScript": ["string === string.toLowerCase()", "string === string.toUpperCase()"],
+        "Java": ["Character.isLowerCase(char)", "Character.isUpperCase(char)"],
+        "C++": ["islower(char)", "isupper(char)"],
+        "Golang": ["unicode.IsLower(rune)", "unicode.IsUpper(rune)"],
+        "Rust": ["char.is_lowercase()", "char.is_uppercase()"]
+      },
       "Slice": {
         "Python": ["string[1:]", "string[:5]"],
         "JavaScript": ["string.slice(1)", "string.slice(0, 5)"],
@@ -235,6 +243,14 @@
         "C++": ["std::reverse(string.begin(), string.end())"],
         "Golang": ["// Iterate through runes and reverse"],
         "Rust": ["string.chars().rev().collect::<String>()"]
+      },
+      "Sort": {
+        "Python": ["''.join(sorted(string))"],
+        "JavaScript": ["string.split('').sort().join('')"],
+        "Java": ["char[] chars = string.toCharArray(); Arrays.sort(chars); String sortedString = new String(chars);"],
+        "C++": ["sort(string.begin(), string.end())"],
+        "Golang": ["sort.Slice(runeSlice, func(i, j int) bool { return runeSlice[i] < runeSlice[j] })"],
+        "Rust": ["let mut chars: Vec<char> = string.chars().collect(); chars.sort(); let sorted_string: String = chars.into_iter().collect();"]
       }
     },
     "Arrays": {

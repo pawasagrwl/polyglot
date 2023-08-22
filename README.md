@@ -63,10 +63,16 @@ Explore the essential coding constructs across different programming languages t
 | |  | ```string.lower()``` | ```string.toLowerCase()``` | ```string.toLowerCase()``` | ```std::transform(string.begin(), string.end(), string.begin(), ::tolower)``` | ```strings.ToLower(string)``` | ```string.to_lowercase()``` |
 | |  | ```string.upper()``` | ```string.toUpperCase()``` | ```string.toUpperCase()``` |  | ```strings.ToUpper(string)``` |  |
 | | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| | *Check Case* | ```string.islower()``` | ```string === string.toLowerCase()``` | ```Character.isLowerCase(char)``` | ```islower(char)``` | ```unicode.IsLower(rune)``` | ```char.is_lowercase()``` |
+| |  | ```string.isupper()``` | ```string === string.toUpperCase()``` | ```Character.isUpperCase(char)``` | ```isupper(char)``` | ```unicode.IsUpper(rune)``` | ```char.is_uppercase()``` |
+| |  | ```string.istitle()``` |  |  |  |  |  |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | | *Slice* | ```string[1:]``` | ```string.slice(1)``` | ```string.substring(1)``` | ```string.substr(1)``` | ```string[1:]``` | ```&string[1..]``` |
 | |  | ```string[:5]``` | ```string.slice(0, 5)``` | ```string.substring(0, 5)``` | ```string.substr(0, 5)``` | ```string[:5]``` | ```&string[..5]``` |
 | | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | | *Reverse* | ```string[::-1]``` | ```string.split('').reverse().join('')``` | ```new StringBuilder(string).reverse().toString()``` | ```std::reverse(string.begin(), string.end())``` | ```// Iterate through runes and reverse``` | ```string.chars().rev().collect::<String>()``` |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| | *Sort* | ```''.join(sorted(string))``` | ```string.split('').sort().join('')``` | ```char[] chars = string.toCharArray(); Arrays.sort(chars); String sortedString = new String(chars);``` | ```sort(string.begin(), string.end())``` | ```sort.Slice(runeSlice, func(i, j int) bool { return runeSlice[i] < runeSlice[j] })``` | ```let mut chars: Vec<char> = string.chars().collect(); chars.sort(); let sorted_string: String = chars.into_iter().collect();``` |
 | | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | **Arrays** |

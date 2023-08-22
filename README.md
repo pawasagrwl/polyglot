@@ -2,7 +2,7 @@
 
 Welcome to the Programming Polyglot, your one-stop reference guide to understanding the essential Data Structure and Algorithms (DSA) constructs across various programming languages. Whether you're a student, an enthusiast, or a seasoned developer switching between languages, this interactive guide aims to provide quick and easy access to common coding practices.
 
-## Explore Interactively
+---## Explore Interactively
 
 Immerse yourself in an interactive learning experience by visiting the [Interactive Site](https://pawasagrwl.github.io/polyglot/). Select your preferred language and explore code snippets for a wide range of operations and techniques.
 

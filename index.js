@@ -23,6 +23,10 @@ function populateDropdowns(data) {
   const operationDropdown = document.getElementById("operation-dropdown");
   const languageDropdown = document.getElementById("language-dropdown");
 
+  // Insert placeholder for topic dropdown
+  topicDropdown.innerHTML =
+    '<option value="" disabled selected>Select topic</option>';
+
   // Populate the topic dropdown
   Object.keys(data.topics).forEach((topic) => {
     const option = document.createElement("option");
@@ -34,20 +38,25 @@ function populateDropdowns(data) {
   // Populate the operation dropdown
   topicDropdown.addEventListener("change", () => {
     const selectedTopic = topicDropdown.value;
-    operationDropdown.innerHTML = ""; // Clear previous options
+    operationDropdown.innerHTML =
+      '<option value="" disabled selected>Select operation</option>'; // Clear previous options
     Object.keys(data.topics[selectedTopic]).forEach((operation) => {
       const option = document.createElement("option");
       option.value = operation;
       option.text = operation;
       operationDropdown.appendChild(option);
     });
+    languageDropdown.innerHTML = "";
   });
 
   // Populate the language dropdown
   operationDropdown.addEventListener("change", () => {
+    languageDropdown.innerHTML =
+      '<option value="" disabled selected>Select language</option>';
+
     const selectedTopic = topicDropdown.value;
     const selectedOperation = operationDropdown.value;
-    languageDropdown.innerHTML = ""; // Clear previous options
+
     Object.keys(data.topics[selectedTopic][selectedOperation]).forEach(
       (language) => {
         const option = document.createElement("option");
@@ -66,6 +75,7 @@ function findCode() {
   const contentDiv = document.getElementById("code");
   const code = data.topics[selectedTopic][selectedOperation][selectedLanguage];
   contentDiv.innerHTML = code.join("<br>");
+  contentDiv.style.display = "block";
 }
 
 function toggleColumn(checkbox) {
@@ -104,17 +114,17 @@ function toggleColumn(checkbox) {
 }
 
 function resetCode() {
-  document.getElementById('topic-dropdown').selectedIndex = 0;
-  document.getElementById('operation-dropdown').selectedIndex = 0;
-  document.getElementById('language-dropdown').selectedIndex = 0;
+  document.getElementById("topic-dropdown").selectedIndex = 0;
+  document.getElementById("operation-dropdown").innerHTML = '';
+  document.getElementById("language-dropdown").innerHTML = '';
+  document.getElementById("code").style.display = "none";
 }
 
-document.getElementById('theme').addEventListener('click', function() {
-  document.body.classList.toggle('dark-theme');
+document.getElementById("theme").addEventListener("click", function () {
+  document.body.classList.toggle("dark-theme");
 });
 
-
-function scrollToTop () {
-  window.scrollTo({top: 0, behavior: 'smooth'});
-};
-
+function scrollToTop() {
+  const container = document.querySelector(".table-container");
+  container.scrollTo({ top: 0, behavior: "smooth" });
+}

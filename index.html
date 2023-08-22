@@ -32,7 +32,7 @@
           <i class="fas fa-sync-alt"></i>
         </button>
       </div>
-      <div id="code"></div>
+      <div id="code" style="display: none"></div>
       <div id="language-selection">
         <span>Languages:</span>
         <div id="languages">
@@ -92,21 +92,28 @@
           </label>
         </div>
       </div>
-      <div id="content"></div>
+
+      <div class="table-container">
+        <div class="horizontal-scroll">
+          <div id="content"></div>
+        </div>
+      </div>
 
       <script src="index.js"></script>
     </div>
     <footer>
       <p>
         Copyright &copy; Pawas Aggarwal. Last updated:
-        <a href="https://github.com/pawasagrwl/polyglot" target="_blank">August 19, 2023</a>
+        <a href="https://github.com/pawasagrwl/polyglot" target="_blank"
+          >August 22, 2023</a
+        >
       </p>
       <button
         id="scrollToTop"
         class="header-btn left-btn"
         onclick="scrollToTop()"
       >
-        <u>Scroll To Top</u>
+        <u>Scroll Table To Top</u>
         <i class="fas fa-arrow-up"></i>
       </button>
     </footer>

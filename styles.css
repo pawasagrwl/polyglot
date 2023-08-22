@@ -144,6 +144,16 @@ select {
   max-width: 1000px; /* make sure the width is same as container */
 }
 
+.horizontal-scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.table-container {
+  height: calc(100vh - 350px); /* You can adjust this value */
+  overflow-y: scroll;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;

@@ -17,4 +17,6 @@ Find a detailed comparison and code examples in the [Code Table](table.md). From
 
  Your insights can make this guide even better! Contributions, suggestions, and feedback are highly encouraged. Feel free to open an issue or submit a pull request.
 
+---
+
 Thank you for exploring the Programming Polyglot: DSA Essentials Guide. Happy Coding! 🚀

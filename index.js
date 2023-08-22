@@ -15,6 +15,7 @@ fetch("data.json")
   .then((jsonData) => {
     data = jsonData; // Store the fetched JSON data in the global variable
     populateDropdowns(data);
+    populateTopics(data);
   })
   .catch((err) => console.error(err));
 
@@ -68,6 +69,46 @@ function populateDropdowns(data) {
   });
 }
 
+function populateTopics(data) {
+  const topicSelectionDiv = document.getElementById("topics");
+  Object.keys(data.topics).forEach((topic) => {
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.value = topic;
+    input.onclick = function () {
+      toggleTopic(this, data);
+      populateOperations(data);
+    };
+    input.checked = true;
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(topic));
+    topicSelectionDiv.appendChild(label);
+  });
+}
+
+function populateOperations(data) {
+  const operationSelectionDiv = document.getElementById("operations");
+  operationSelectionDiv.innerHTML = ""; // Clear existing operations
+
+  // Get all selected topics
+  const selectedTopics = Array.from(document.querySelectorAll('#topics input[type="checkbox"]:checked')).map(c => c.value);
+
+  selectedTopics.forEach((topic) => {
+    Object.keys(data.topics[topic]).forEach((operation) => {
+      const label = document.createElement("label");
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = operation;
+      input.onclick = function () { toggleOperation(this); };
+      input.checked = true;
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(operation));
+      operationSelectionDiv.appendChild(label);
+    });
+  });
+}
+
 function findCode() {
   const selectedTopic = document.getElementById("topic-dropdown").value;
   const selectedOperation = document.getElementById("operation-dropdown").value;
@@ -115,8 +156,8 @@ function toggleColumn(checkbox) {
 
 function resetCode() {
   document.getElementById("topic-dropdown").selectedIndex = 0;
-  document.getElementById("operation-dropdown").innerHTML = '';
-  document.getElementById("language-dropdown").innerHTML = '';
+  document.getElementById("operation-dropdown").innerHTML = "";
+  document.getElementById("language-dropdown").innerHTML = "";
   document.getElementById("code").style.display = "none";
 }
 

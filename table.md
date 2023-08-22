@@ -55,6 +55,8 @@
 | | *Add/Concatenate* | ```string1 + "string2"``` | ```string1 + string2``` | ```string1.concat(string2)``` | ```string1 + string2``` | ```string1 + string2``` | ```string1 + string2``` |
 | |  | ```string1 + string2``` |  |  |  |  |  |
 | | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| | *Replace Character/Substring* | ```string.replace(old, new)``` | ```string.replace(old, new)``` | ```string.replace(oldChar, newChar)``` | ```std::replace(string.begin(), string.end(), oldChar, newChar)``` | ```strings.Replace(string, old, new, -1)``` | ```string.replace(old, new)``` |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | | *Change case* | ```string.capitalize()``` | ```string.charAt(0).toUpperCase() + string.slice(1)``` | ```Character.toUpperCase(string.charAt(0)) + string.substring(1)``` | ```std::transform(string.begin(), string.end(), string.begin(), ::toupper)``` | ```strings.Title(string)``` | ```string.to_uppercase()``` |
 | |  | ```string.lower()``` | ```string.toLowerCase()``` | ```string.toLowerCase()``` | ```std::transform(string.begin(), string.end(), string.begin(), ::tolower)``` | ```strings.ToLower(string)``` | ```string.to_lowercase()``` |
 | |  | ```string.upper()``` | ```string.toUpperCase()``` | ```string.toUpperCase()``` |  | ```strings.ToUpper(string)``` |  |
@@ -108,6 +110,8 @@
 | | *Print* | ```print(hashmap)``` | ```console.log(hashmap)``` | ```System.out.println(hashmap)``` | ```for (const auto &kv : hashmap) { std::cout << kv.first << ": " << kv.second << '\n'; }``` | ```for key, value := range hashmap { fmt.Println(key, value) }``` | ```for (key, value) in &hashmap { println!("{}: {}", key, value); }``` |
 | |  |  | ```for (let [key, value] of hashmap) { console.log(key, value); }``` | ```hashmap.forEach((key, value) -> System.out.println(key + ": " + value))``` |  |  |  |
 | | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| | *Iterating through keys/values* | ```for key, value in hashmap.items():``` | ```for (const [key, value] of Object.entries(hashmap)) {}``` | ```for (Map.Entry<K, V> entry : hashmap.entrySet()) {}``` | ```for (const auto &pair : hashmap) {}``` | ```for key, value := range hashmap {}``` | ```for (key, value) in &hashmap {}``` |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | | *Access element* | ```hashmap[key]``` | ```hashmap[key]``` | ```hashmap.get(key)``` | ```hashmap[key]``` | ```hashmap[key]``` | ```hashmap[&key]``` |
 | |  | ```hashmap.get(key)``` | ```hashmap.get(key)``` |  | ```hashmap.at(key)``` |  | ```hashmap.get(&key)``` |
 | | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
@@ -117,7 +121,7 @@
 | | *Count elements* | ```len(hashmap)``` | ```Object.keys(hashmap).length``` | ```hashmap.size()``` | ```hashmap.size()``` | ```len(hashmap)``` | ```hashmap.len()``` |
 | |  |  | ```hashmap.size``` |  |  |  |  |
 | | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
-| | *Add* | ```hashmap[key] = value``` | ```hashmap[key] = value``` | ```hashmap.put(key, value)``` | ```hashmap[key] = value``` | ```hashmap[key] = value``` | ```hashmap.insert(key, value)``` |
+| | *Add/Update* | ```hashmap[key] = value``` | ```hashmap[key] = value``` | ```hashmap.put(key, value)``` | ```hashmap[key] = value``` | ```hashmap[key] = value``` | ```hashmap.insert(key, value)``` |
 | |  |  | ```hashmap.set(key, value)``` |  |  |  |  |
 | | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | | *Delete* | ```del hashmap[key]``` | ```delete hashmap[key]``` | ```hashmap.remove(key)``` | ```hashmap.erase(key)``` | ```delete(hashmap, key)``` | ```hashmap.remove(&key)``` |
@@ -150,8 +154,41 @@
 | | *Intersection* | ```set1.intersection(set2)``` | ```new Set([...set1].filter(x => set2.has(x)))``` | ```set1.retainAll(set2)``` | ```std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(), std::inserter(result, result.begin()))``` | ```for element := range set1 { if _, found := set2[element]; !found { delete(set1, element) } }``` | ```set1.intersection(&set2).cloned().collect()``` |
 | |  | ```set1 & set2``` |  |  |  |  |  |
 | | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| | *Difference* | ```set1 - set2``` | ```new Set([...set1].filter(x => !set2.has(x)))``` | ```set1.removeAll(set2)``` | ```std::set_difference(set1.begin(), set1.end(), set2.begin(), set2.end(), std::inserter(result, result.end()))``` | ```// Using a loop to find difference``` | ```// Using a method from a library like 'difference'``` |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| | *Subset Check* | ```set1.issubset(set2)``` | ```[...set1].every(x => set2.has(x))``` | ```set1.containsAll(set2)``` | ```std::includes(set1.begin(), set1.end(), set2.begin(), set2.end())``` | ```// Using a loop to check subset``` | ```set1.is_subset(set2)``` |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | | *Min* | ```min(set1)``` | ```Math.min(...set1)``` | ```Collections.min(set1)``` | ```*std::min_element(set1.begin(), set1.end())``` | ```func min(set1 map[Type]bool) Type { var minValue Type = <MAX_VALUE>; for key := range set1 { if key < minValue { minValue = key } } return minValue }``` | ```*set1.iter().min().unwrap()``` |
 | | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | | *Max* | ```max(set1)``` | ```Math.max(...set1)``` | ```Collections.max(set1)``` | ```*std::max_element(set1.begin(), set1.end())``` | ```func max(set1 map[Type]bool) Type { var maxValue Type; for key := range set1 { if key > maxValue { maxValue = key } } return maxValue }``` | ```*set1.iter().max().unwrap()``` |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| **Date and Time** |
+| | *Get Current Date/Time* | ```from datetime import datetime``` | ```let now = new Date()``` | ```import java.time.LocalDateTime``` | ```#include <chrono>``` | ```now := time.Now()``` | ```let now = Utc::now()``` |
+| |  | ```now = datetime.now()``` |  | ```LocalDateTime now = LocalDateTime.now()``` | ```auto now = std::chrono::system_clock::now()``` |  |  |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| | *Format Date/Time* | ```now.strftime('%Y-%m-%d %H:%M:%S')``` | ```now.toLocaleDateString()``` | ```DateTimeFormatter.ofPattern('yyyy-MM-dd HH:mm:ss').format(now)``` | ```std::strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", &now)``` | ```now.Format('2006-01-02 15:04:05')``` | ```now.format('%Y-%m-%d %H:%M:%S').to_string()``` |
+| |  |  | ```now.toLocaleTimeString()``` |  |  |  |  |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| | *Calculate Difference between Dates* | ```delta = date1 - date2``` | ```let delta = date1 - date2``` | ```Duration duration = Duration.between(date1, date2)``` | ```auto delta = date1 - date2``` | ```delta := date1.Sub(date2)``` | ```let duration = date1.signed_duration_since(date2)``` |
+| |  | ```days = delta.days``` | ```let days = Math.floor(delta / (1000 * 60 * 60 * 24))``` | ```long days = duration.toDays()``` | ```auto days = std::chrono::duration_cast<std::chrono::days>(delta).count()``` | ```days := delta.Hours() / 24``` | ```let days = duration.num_days()``` |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| | *Add/Subtract Time* | ```from datetime import timedelta``` | ```let newDate = new Date(currentDate)``` | ```import java.time.LocalDateTime``` | ```#include <chrono>``` | ```newDate := currentDate.AddDate(0, 0, 5)``` | ```let new_date = current_date + Duration::days(5)``` |
+| |  | ```new_date = current_date + timedelta(days=5, hours=3)``` | ```newDate.setDate(currentDate.getDate() + 5)``` | ```import java.time.temporal.ChronoUnit``` | ```auto newDate = currentDate + std::chrono::days(5)``` | ```newDate := currentDate.Add(-time.Hour)``` | ```let new_date = current_date - Duration::hours(1)``` |
+| |  | ```new_date = current_date - timedelta(days=2, hours=1)``` | ```newDate.setHours(currentDate.getHours() - 1)``` | ```LocalDateTime newDate = currentDate.plus(5, ChronoUnit.DAYS)``` | ```auto newDate = currentDate - std::chrono::hours(1)``` |  |  |
+| |  |  |  | ```LocalDateTime newDate = currentDate.minus(1, ChronoUnit.HOURS)``` |  |  |  |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| **Regex** |
+| | *Match* | ```import re``` | ```let result = string.match(pattern)``` | ```Pattern pattern = Pattern.compile(regex);``` | ```std::regex_match(string, std::regex(pattern))``` | ```result, _ := regexp.MatchString(pattern, string)``` | ```let re = Regex::new(pattern).unwrap();``` |
+| |  | ```result = re.match(pattern, string)``` |  | ```Matcher matcher = pattern.matcher(string);``` |  |  | ```let result = re.is_match(string);``` |
+| |  |  |  | ```boolean result = matcher.matches();``` |  |  |  |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| | *Search* | ```import re``` | ```let result = string.search(pattern)``` | ```Pattern pattern = Pattern.compile(regex);``` | ```std::regex_search(string, std::regex(pattern))``` | ```result, _ := regexp.MatchString(pattern, string)``` | ```let re = Regex::new(pattern).unwrap();``` |
+| |  | ```result = re.search(pattern, string)``` |  | ```Matcher matcher = pattern.matcher(string);``` |  |  | ```let result = re.find(string);``` |
+| |  |  |  | ```boolean result = matcher.find();``` |  |  |  |
+| | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| | *Replace* | ```import re``` | ```let result = string.replace(pattern, replacement)``` | ```string.replaceAll(pattern, replacement)``` | ```std::regex_replace(string, std::regex(pattern), replacement)``` | ```result = regexp.MustCompile(pattern).ReplaceAllString(string, replacement)``` | ```let re = Regex::new(pattern).unwrap();``` |
+| |  | ```result = re.sub(pattern, replacement, string)``` |  |  |  |  | ```let result = re.replace_all(string, replacement);``` |
 | | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |

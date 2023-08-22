@@ -197,6 +197,14 @@
         "Golang": ["string1 + string2"],
         "Rust": ["string1 + string2"]
       },
+      "Replace Character/Substring": {
+        "Python": ["string.replace(old, new)"],
+        "JavaScript": ["string.replace(old, new)"],
+        "Java": ["string.replace(oldChar, newChar)"],
+        "C++": ["std::replace(string.begin(), string.end(), oldChar, newChar)"],
+        "Golang": ["strings.Replace(string, old, new, -1)"],
+        "Rust": ["string.replace(old, new)"]
+      },
       "Change case": {
         "Python": ["string.capitalize()", "string.lower()", "string.upper()"],
         "JavaScript": [
@@ -222,7 +230,10 @@
       },
       "Check Case": {
         "Python": ["string.islower()", "string.isupper()", "string.istitle()"],
-        "JavaScript": ["string === string.toLowerCase()", "string === string.toUpperCase()"],
+        "JavaScript": [
+          "string === string.toLowerCase()",
+          "string === string.toUpperCase()"
+        ],
         "Java": ["Character.isLowerCase(char)", "Character.isUpperCase(char)"],
         "C++": ["islower(char)", "isupper(char)"],
         "Golang": ["unicode.IsLower(rune)", "unicode.IsUpper(rune)"],
@@ -247,10 +258,16 @@
       "Sort": {
         "Python": ["''.join(sorted(string))"],
         "JavaScript": ["string.split('').sort().join('')"],
-        "Java": ["char[] chars = string.toCharArray(); Arrays.sort(chars); String sortedString = new String(chars);"],
+        "Java": [
+          "char[] chars = string.toCharArray(); Arrays.sort(chars); String sortedString = new String(chars);"
+        ],
         "C++": ["sort(string.begin(), string.end())"],
-        "Golang": ["sort.Slice(runeSlice, func(i, j int) bool { return runeSlice[i] < runeSlice[j] })"],
-        "Rust": ["let mut chars: Vec<char> = string.chars().collect(); chars.sort(); let sorted_string: String = chars.into_iter().collect();"]
+        "Golang": [
+          "sort.Slice(runeSlice, func(i, j int) bool { return runeSlice[i] < runeSlice[j] })"
+        ],
+        "Rust": [
+          "let mut chars: Vec<char> = string.chars().collect(); chars.sort(); let sorted_string: String = chars.into_iter().collect();"
+        ]
       }
     },
     "Arrays": {
@@ -423,6 +440,16 @@
           "for (key, value) in &hashmap { println!(\"{}: {}\", key, value); }"
         ]
       },
+      "Iterating through keys/values": {
+        "Python": ["for key, value in hashmap.items():"],
+        "JavaScript": [
+          "for (const [key, value] of Object.entries(hashmap)) {}"
+        ],
+        "Java": ["for (Map.Entry<K, V> entry : hashmap.entrySet()) {}"],
+        "C++": ["for (const auto &pair : hashmap) {}"],
+        "Golang": ["for key, value := range hashmap {}"],
+        "Rust": ["for (key, value) in &hashmap {}"]
+      },
       "Access element": {
         "Python": ["hashmap[key]", "hashmap.get(key)"],
         "JavaScript": ["hashmap[key]", "hashmap.get(key)"],
@@ -461,7 +488,7 @@
         "Golang": ["len(hashmap)"],
         "Rust": ["hashmap.len()"]
       },
-      "Add": {
+      "Add/Update": {
         "Python": ["hashmap[key] = value"],
         "JavaScript": ["hashmap[key] = value", "hashmap.set(key, value)"],
         "Java": ["hashmap.put(key, value)"],
@@ -586,9 +613,33 @@
         "Python": ["set1.intersection(set2)", "set1 & set2"],
         "JavaScript": ["new Set([...set1].filter(x => set2.has(x)))"],
         "Java": ["set1.retainAll(set2)"],
-        "C++": ["std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(), std::inserter(result, result.begin()))"],
-        "Golang": ["for element := range set1 { if _, found := set2[element]; !found { delete(set1, element) } }"],
+        "C++": [
+          "std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(), std::inserter(result, result.begin()))"
+        ],
+        "Golang": [
+          "for element := range set1 { if _, found := set2[element]; !found { delete(set1, element) } }"
+        ],
         "Rust": ["set1.intersection(&set2).cloned().collect()"]
+      },
+      "Difference": {
+        "Python": ["set1 - set2"],
+        "JavaScript": ["new Set([...set1].filter(x => !set2.has(x)))"],
+        "Java": ["set1.removeAll(set2)"],
+        "C++": [
+          "std::set_difference(set1.begin(), set1.end(), set2.begin(), set2.end(), std::inserter(result, result.end()))"
+        ],
+        "Golang": ["// Using a loop to find difference"],
+        "Rust": ["// Using a method from a library like 'difference'"]
+      },
+      "Subset Check": {
+        "Python": ["set1.issubset(set2)"],
+        "JavaScript": ["[...set1].every(x => set2.has(x))"],
+        "Java": ["set1.containsAll(set2)"],
+        "C++": [
+          "std::includes(set1.begin(), set1.end(), set2.begin(), set2.end())"
+        ],
+        "Golang": ["// Using a loop to check subset"],
+        "Rust": ["set1.is_subset(set2)"]
       },
       "Min": {
         "Python": ["min(set1)"],
@@ -609,6 +660,133 @@
           "func max(set1 map[Type]bool) Type { var maxValue Type; for key := range set1 { if key > maxValue { maxValue = key } } return maxValue }"
         ],
         "Rust": ["*set1.iter().max().unwrap()"]
+      }
+    },
+    "Date and Time": {
+      "Get Current Date/Time": {
+        "Python": ["from datetime import datetime", "now = datetime.now()"],
+        "JavaScript": ["let now = new Date()"],
+        "Java": [
+          "import java.time.LocalDateTime",
+          "LocalDateTime now = LocalDateTime.now()"
+        ],
+        "C++": [
+          "#include <chrono>",
+          "auto now = std::chrono::system_clock::now()"
+        ],
+        "Golang": ["now := time.Now()"],
+        "Rust": ["let now = Utc::now()"]
+      },
+      "Format Date/Time": {
+        "Python": ["now.strftime('%Y-%m-%d %H:%M:%S')"],
+        "JavaScript": ["now.toLocaleDateString()", "now.toLocaleTimeString()"],
+        "Java": [
+          "DateTimeFormatter.ofPattern('yyyy-MM-dd HH:mm:ss').format(now)"
+        ],
+        "C++": [
+          "std::strftime(buffer, sizeof(buffer), \"%Y-%m-%d %H:%M:%S\", &now)"
+        ],
+        "Golang": ["now.Format('2006-01-02 15:04:05')"],
+        "Rust": ["now.format('%Y-%m-%d %H:%M:%S').to_string()"]
+      },
+      "Calculate Difference between Dates": {
+        "Python": ["delta = date1 - date2", "days = delta.days"],
+        "JavaScript": [
+          "let delta = date1 - date2",
+          "let days = Math.floor(delta / (1000 * 60 * 60 * 24))"
+        ],
+        "Java": [
+          "Duration duration = Duration.between(date1, date2)",
+          "long days = duration.toDays()"
+        ],
+        "C++": [
+          "auto delta = date1 - date2",
+          "auto days = std::chrono::duration_cast<std::chrono::days>(delta).count()"
+        ],
+        "Golang": ["delta := date1.Sub(date2)", "days := delta.Hours() / 24"],
+        "Rust": [
+          "let duration = date1.signed_duration_since(date2)",
+          "let days = duration.num_days()"
+        ]
+      },
+      "Add/Subtract Time": {
+        "Python": [
+          "from datetime import timedelta",
+          "new_date = current_date + timedelta(days=5, hours=3)",
+          "new_date = current_date - timedelta(days=2, hours=1)"
+        ],
+        "JavaScript": [
+          "let newDate = new Date(currentDate)",
+          "newDate.setDate(currentDate.getDate() + 5)",
+          "newDate.setHours(currentDate.getHours() - 1)"
+        ],
+        "Java": [
+          "import java.time.LocalDateTime",
+          "import java.time.temporal.ChronoUnit",
+          "LocalDateTime newDate = currentDate.plus(5, ChronoUnit.DAYS)",
+          "LocalDateTime newDate = currentDate.minus(1, ChronoUnit.HOURS)"
+        ],
+        "C++": [
+          "#include <chrono>",
+          "auto newDate = currentDate + std::chrono::days(5)",
+          "auto newDate = currentDate - std::chrono::hours(1)"
+        ],
+        "Golang": [
+          "newDate := currentDate.AddDate(0, 0, 5)",
+          "newDate := currentDate.Add(-time.Hour)"
+        ],
+        "Rust": [
+          "let new_date = current_date + Duration::days(5)",
+          "let new_date = current_date - Duration::hours(1)"
+        ]
+      }
+    },
+    "Regex": {
+      "Match": {
+        "Python": ["import re", "result = re.match(pattern, string)"],
+        "JavaScript": ["let result = string.match(pattern)"],
+        "Java": [
+          "Pattern pattern = Pattern.compile(regex);",
+          "Matcher matcher = pattern.matcher(string);",
+          "boolean result = matcher.matches();"
+        ],
+        "C++": ["std::regex_match(string, std::regex(pattern))"],
+        "Golang": ["result, _ := regexp.MatchString(pattern, string)"],
+        "Rust": [
+          "let re = Regex::new(pattern).unwrap();",
+          "let result = re.is_match(string);"
+        ]
+      },
+      "Search": {
+        "Python": ["import re", "result = re.search(pattern, string)"],
+        "JavaScript": ["let result = string.search(pattern)"],
+        "Java": [
+          "Pattern pattern = Pattern.compile(regex);",
+          "Matcher matcher = pattern.matcher(string);",
+          "boolean result = matcher.find();"
+        ],
+        "C++": ["std::regex_search(string, std::regex(pattern))"],
+        "Golang": ["result, _ := regexp.MatchString(pattern, string)"],
+        "Rust": [
+          "let re = Regex::new(pattern).unwrap();",
+          "let result = re.find(string);"
+        ]
+      },
+      "Replace": {
+        "Python": [
+          "import re",
+          "result = re.sub(pattern, replacement, string)"
+        ],
+        "JavaScript": ["let result = string.replace(pattern, replacement)"],
+        "Java": ["string.replaceAll(pattern, replacement)"],
+        "C++": ["std::regex_replace(string, std::regex(pattern), replacement)"],
+        "Golang": [
+          "result = regexp.MustCompile(pattern).ReplaceAllString(string, replacement)"
+        ],
+        "Rust": [
+          "let re = Regex::new(pattern).unwrap();",
+          "let result = re.replace_all(string, replacement);"
+        ]
       }
     }
   },
